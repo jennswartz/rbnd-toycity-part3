@@ -15,6 +15,10 @@ class Customer
   def self.find_by_name(name)
     @@customers.find { |customer| customer.name == name }
   end
+  
+  def purchase(product)
+    Transaction.new(self, product)
+  end
 
   
   private
