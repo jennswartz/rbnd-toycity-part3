@@ -18,7 +18,13 @@ class Product
     @@products.find { |product| product.title == name }
   end
 
-
+  def in_stock?
+    @stock > 0  
+  end
+  
+  def self.in_stock
+    @@products.select { |product| product.stock > 0 }   
+  end
   
   private
   
