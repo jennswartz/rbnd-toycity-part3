@@ -1,0 +1,53 @@
+Reflections Questions:
+How long did you spend working on this project?
+I spend about two full days working on this project.
+
+What was the most rewarding challenge you conquered?
+The most rewarding challenge was getting all the requirements of the project to work.
+Several of them took me quite some time to try to decipher and figure out.
+
+What two additional features did you build?  Why?
+New Feature #1:
+
+I added brand information to the product class.  I wanted to be able to calculate the inventory
+for each brand of a product.  I created a method to calculate the total
+number of products for each brand.  
+
+New Feature #2:
+
+I added an ID class method to the customer class so that each customer will have an ID.
+I then included a find by ID method so the customer can be looked up by ID.  
+
+The code that I used to test my features is at the bottom of this file.
+
+Where do you still have room to grow?
+I still have lots of room to grow in all facets of programming.  I am only beginning to feel
+like things are starting to click.  I can understand in my head what I want the program to do,
+but I haven't yet mastered the syntax of how to make it happen.
+
+
+
+Test code:
+
+require_relative "lib/errors"
+require_relative "lib/customer"
+require_relative "lib/product"
+require_relative "lib/transaction"
+
+
+#NEW FEATURES
+
+# Adds products with brand info
+Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55, brand: "LEGO")
+Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12, brand: "Nano Blocks")
+Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 2, brand: "LEGO")
+
+# Prints number of products by brand
+puts Product.number_of_products("LEGO")
+puts Product.number_of_products("Nano Blocks")
+
+# Adds new customer and prints by id
+Customer.new(name: "Walter Latimer")
+walter = Customer.find_by_name("Walter Latimer")
+puts walter.id
+

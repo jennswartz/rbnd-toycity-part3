@@ -1,5 +1,5 @@
 class Product
-  attr_reader :title, :price
+  attr_reader :title, :price, :brand
   attr_accessor :stock
   
   @@products = []
@@ -8,6 +8,7 @@ class Product
     @title = options[:title]
     @price = options[:price]
     @stock = options[:stock]
+    @brand = options[:brand]
     add_to_products
   end
 
@@ -17,6 +18,11 @@ class Product
   
   def self.find_by_title(name)
     @@products.find { |product| product.title == name }
+  end
+
+  def self.number_of_products(brand)
+    @@products.inject(0) { |total, product| product.brand == brand ? 
+  		total + product.stock : total }
   end
 
   def in_stock?
